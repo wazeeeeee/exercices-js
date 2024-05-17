@@ -163,3 +163,108 @@ function calculator(){
         isFinite.methods[name] = func;
     };
 }
+
+/*
+    https://fr.javascript.info/task/array-get-names
+*/
+
+// a revoir.
+let john = { name: "John", age:25 };
+let pete = { name: "Pete", age:30 };
+let mary = { name: "Mary", age:28 };
+
+let users = [ john, pete, mary ];
+
+let names = users.map(user => user.name);
+
+alert(names); // John, Pete, Mary
+
+/*
+    https://fr.javascript.info/task/map-objects
+*/
+
+// à revoir !!
+let john = { name: "John", surname: "Smith", id: 1};
+let pete = { name: "Pete", surname: "Hunt", id: 2};
+let mary = { name: "Mary", surname: "Key", id: 3};
+
+let users = [ john, pete, mary];
+
+let userMapped = users.map(user => ({
+    fullname: `${user.name} ${user.surname}`,
+    id: user.id
+}));
+
+alert(userMapped[0].id);
+alert(usersMapped[0].fullname);
+
+/*
+    https://fr.javascript.info/task/sort-objects
+*/
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let arr = [ john, pete, mary ];
+
+function sortByName(users) {
+    users.sort((a, b) => a.name > b.name ? 1 : -1);
+}
+
+sortByName(arr);
+
+alert(arr[0].name); // John
+alert(arr[1].name); // Mary
+alert(arr[2].name); // Pete
+
+/*
+    https://fr.javascript.info/task/shuffle
+*/
+
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+}
+
+
+let arr = [1, 2, 3];
+
+shuffle(arr);
+alert(arr);
+
+
+/*
+    https://fr.javascript.info/task/average-age
+*/
+
+function getAverageAge(users) {
+    return users.reduce((prev, user) => prev + user.age, 0) / users.length;
+}
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 29 };
+
+let arr = [ john, pete, mary ];
+
+alert( getAverageAge(arr) );
+
+/*
+    https://fr.javascript.info/task/array-unique
+*/
+
+// !! à revoir !!
+function unique(arr){
+    let result = [];
+    for (let str of arr) {
+        if (!result.includes(str)) {
+            result.push(str);
+        }
+    }
+    return result;
+}
+
+let strings = ["Hare", "Krishna", "Hare", "Krishna", "Krishna", "Krishna", "Hare", "Hare", ":-O"];
+
+alert( unique(strings) );
+
