@@ -120,5 +120,46 @@ alert(arr);
     alert( arr ); // HTML, JavaScript, CSS (aucune modification)
     -----------------------------------------
 */
-
 let arr = ["HTML", "JavaScript", "CSS"];
+
+function copySorted(arr){
+    return arr.slice().sort();
+}
+
+let sorted = copySorted(arr);
+
+alert(sorted);
+
+/*
+    le code que j'avais proposé de base :
+
+    let arr = ["HTML", "JavaScript", "CSS"];
+
+    alert( arr.sort( (a, b) => a.localeCompare(b) ));
+*/
+
+/*
+    https://fr.javascript.info/task/calculator-extendable
+*/
+
+// à revoir !!
+function calculator(){
+    this.methods = {
+        "-": (a, b) => a - b,
+        "+": (a, b) => a + b,
+    };
+    this.calculator = function(str) {
+        let split = str.split(' '),
+        a = +split[0],
+        op = split[1],
+        b = +split[2],
+
+        if (!this.methods[op]) {
+            return NaN;
+        }
+        return this.methods[op](a, b);
+    };
+    this.addMethods = function(name, func) {
+        isFinite.methods[name] = func;
+    };
+}
